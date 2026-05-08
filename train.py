@@ -24,11 +24,6 @@ def main(args):
         label_format="index",
         apply_scaling=True,
     )
-
-    for (x,y) in train_loader:
-        print(f"{x.shape=}, {y.shape=}")
-        break
-    exit()
     
     if args.plot_data:
         from plotting import plot_data_distributions
