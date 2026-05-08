@@ -17,13 +17,18 @@ def main(args):
     train_loader, val_loader, test_loader = create_dataloaders(
         args.data_config,
         batch_size=128,
-        shuffle=False,
+        shuffle=True,
         val_size=0.2,
         input_type=input_type,
         target_type=task_type,
         label_format="index",
         apply_scaling=True,
     )
+
+    for (x,y) in train_loader:
+        print(f"{x.shape=}, {y.shape=}")
+        break
+    exit()
     
     if args.plot_data:
         from plotting import plot_data_distributions
